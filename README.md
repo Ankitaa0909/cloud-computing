@@ -17,22 +17,29 @@ Web Layer
 Application Layer
 Cache Layer
 Database Layer
-Subnets Created
-Subnet	Type	CIDR	Purpose
-web	Public	10.0.1.0/24	Internet-facing web server
-app1	Private	10.0.2.0/24	Application server
-app2	Private	10.0.3.0/24	Application server
-dbcache	Private	10.0.4.0/24	Cache layer
-db	Private	10.0.5.0/24	Database layer
-EC2 Instances
+
+## 🔗 Subnets Created
+
+| Subnet | Type | CIDR | Purpose |
+|:-------|:-----|:-----|:--------|
+| `web` | Public | `10.0.1.0/24` | Internet-facing web server |
+| `app1` | Private | `10.0.2.0/24` | Application server |
+| `app2` | Private | `10.0.3.0/24` | Application server |
+| `dbcache` | Private | `10.0.4.0/24` | Cache layer |
+| `db` | Private | `10.0.5.0/24` | Database layer |
+
+## 🖥️ EC2 Instances
+
 Instances were deployed in each subnet to simulate application components.
 
-Instance Name	Subnet	Role
-web	web subnet	Web server
-app1	app1 subnet	Application server
-app2	app2 subnet	Application server
-prod-dbcache	dbcache subnet	Cache layer
-prod-db	db subnet	Database server
+| Instance Name | Subnet | Role |
+|:--------------|:-------|:-----|
+| `web` | `web` subnet | Web server |
+| `app1` | `app1` subnet | Application server |
+| `app2` | `app2` subnet | Application server |
+| `prod-dbcache` | `dbcache` subnet | Cache layer |
+| `prod-db` | `db` subnet | Database server |
+
 Internet Access Rules
 web subnet connects to the internet via Internet Gateway
 app1 and dbcache are allowed to send outbound internet requests
@@ -40,14 +47,24 @@ db subnet remains fully private
 Development Network (2-Tier Architecture)
 The development VPC uses a 2-tier architecture.
 
+---
+
 Subnets Created
-Subnet	Type	Purpose
-web	Public	Web access for development
-db	Private	Development database
+## 🔗 Subnets Created
+
+| Subnet | Type | Purpose |
+|:-------|:-----|:--------|
+| `web`  | Public | Web access for development |
+| `db`   | Private | Development database |
+
 Network Rules
 Only web subnet can access the internet
 db subnet is isolated
+
+---
+
 VPC Peering
+
 A VPC Peering connection was created between:
 
 Production VPC
@@ -60,6 +77,8 @@ A secure connection was configured between:
 Production DB subnet
 Development DB subnet
 This enables controlled communication between both environments.
+
+---
 
 Security Implementation
 Security Groups
