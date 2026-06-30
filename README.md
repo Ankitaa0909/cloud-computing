@@ -84,6 +84,8 @@ Security Implementation
 Security Groups
 Security groups were configured to control instance-level traffic.
 
+---
+
 Examples:
 
 Web server allows HTTP/HTTPS
@@ -91,6 +93,8 @@ Application servers allow traffic from web tier
 Database servers allow traffic only from application tier
 Network ACLs (NACLs)
 NACLs were implemented to provide subnet-level traffic filtering.
+
+---
 
 AWS Components Used
 Amazon VPC
@@ -102,8 +106,20 @@ Route Tables
 Security Groups
 Network ACLs
 VPC Peering
-Estimated Infrastructure Cost
+
+## 💰 Estimated Infrastructure Cost
+
 Approximate cost of the architecture:
+
+| Resource | Estimated Monthly Cost |
+|:---------|:----------------------:|
+| EC2 Instances (5 × `t3.micro`) | ~$37 |
+| NAT Gateway | ~$32 |
+| Other Networking Components | Free |
+
+**Total Estimated Cost:** **~$70/month**
+
+---
 
 Resource	Estimated Monthly Cost
 EC2 Instances (5 × t3.micro)	~$37
